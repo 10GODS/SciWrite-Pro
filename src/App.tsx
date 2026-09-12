@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-import { FileText, Download, Loader2, BookOpen, Sparkles, FileUp, Image as ImageIcon, AlertTriangle } from 'lucide-react';
+import { FileText, Download, Loader2, BookOpen, Sparkles, FileUp, Image as ImageIcon, AlertTriangle, Coffee } from 'lucide-react';
 import * as mammoth from 'mammoth';
 
 import { Button } from '@/components/ui/button';
@@ -200,12 +200,22 @@ ${extractedHtml}`;
               <p className="text-sm text-muted-foreground">AI-Powered Research Paper Editor & Formatter</p>
             </div>
           </div>
-          {outputMarkdown && (
-            <Button onClick={handleExport} variant="outline" className="gap-2">
-              <Download className="w-4 h-4" />
-              Export Markdown
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              className="gap-2 border-amber-200 bg-amber-50 text-amber-700 hover:bg-amber-100 hover:text-amber-800"
+              onClick={() => window.open('https://buymeacoffee.com/kumarrsgisw', '_blank')}
+            >
+              <Coffee className="w-4 h-4" />
+              Buy Me a Coffee
             </Button>
-          )}
+            {outputMarkdown && (
+              <Button onClick={handleExport} variant="outline" className="gap-2">
+                <Download className="w-4 h-4" />
+                Export Markdown
+              </Button>
+            )}
+          </div>
         </header>
 
         <main className="grid grid-cols-1 lg:grid-cols-2 gap-6">
